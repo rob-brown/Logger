@@ -29,8 +29,13 @@ public protocol LoggerFormatter {
 }
 
 public final class StandardFormatter: LoggerFormatter {
-
     public func format(string: String, level: LoggerLevel, name: String, settings: LoggerSettings) -> String {
         return "[\(name):\(level)]: \(string)"
+    }
+}
+
+public final class RawFormatter: LoggerFormatter {
+    public func format(string: String, level: LoggerLevel, name: String, settings: LoggerSettings) -> String {
+        return string
     }
 }
