@@ -25,13 +25,13 @@
 import Foundation
 
 public protocol LoggerBackend {
-    func log(string: String, level: LoggerLevel, name: String, settings: LoggerSettings)
+    func log(string: String, level: LoggerLevel, metadata: [String:Any], name: String, settings: LoggerSettings)
 }
 
 public final class ConsoleBackend: LoggerBackend {
 
-    public func log(string: String, level: LoggerLevel, name: String, settings: LoggerSettings) {
-        let output = settings.formatter.format(string: string, level: level, name: name, settings: settings)
+    public func log(string: String, level: LoggerLevel, metadata: [String:Any], name: String, settings: LoggerSettings) {
+        let output = settings.formatter.format(string: string, level: level, metadata: metadata, name: name, settings: settings)
         NSLog(output)
     }
 }

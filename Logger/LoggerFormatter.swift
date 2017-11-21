@@ -25,14 +25,14 @@
 import Foundation
 
 public protocol LoggerFormatter {
-    func format(string: String, level: LoggerLevel, name: String, settings: LoggerSettings) -> String
+    func format(string: String, level: LoggerLevel, metadata: [String:Any], name: String, settings: LoggerSettings) -> String
 }
 
 public final class StandardFormatter: LoggerFormatter {
 
     public init() {}
 
-    public func format(string: String, level: LoggerLevel, name: String, settings: LoggerSettings) -> String {
+    public func format(string: String, level: LoggerLevel, metadata: [String:Any], name: String, settings: LoggerSettings) -> String {
         return "[\(name):\(level)]: \(string)"
     }
 }
@@ -41,7 +41,7 @@ public final class RawFormatter: LoggerFormatter {
 
     public init() {}
 
-    public func format(string: String, level: LoggerLevel, name: String, settings: LoggerSettings) -> String {
+    public func format(string: String, level: LoggerLevel, metadata: [String:Any], name: String, settings: LoggerSettings) -> String {
         return string
     }
 }

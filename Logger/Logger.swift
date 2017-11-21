@@ -34,25 +34,25 @@ public final class Logger {
         self.settings = settings
     }
 
-    public func debug(_ string: String) {
+    public func debug(_ string: String, metadata: [String:Any] = [:]) {
         log(string: string, level: .debug)
     }
 
-    public func info(_ string: String) {
+    public func info(_ string: String, metadata: [String:Any] = [:]) {
         log(string: string, level: .info)
     }
 
-    public func warn(_ string: String) {
+    public func warn(_ string: String, metadata: [String:Any] = [:]) {
         log(string: string, level: .warn)
     }
 
-    public func error(_ string: String) {
+    public func error(_ string: String, metadata: [String:Any] = [:]) {
         log(string: string, level: .error)
     }
 
-    public func log(string: String, level: LoggerLevel) {
+    public func log(string: String, level: LoggerLevel, metadata: [String:Any] = [:]) {
         guard level >= settings.level && level != .disable && string.isEmpty == false else { return }
 
-        settings.backend.log(string: string, level: level, name: name, settings: settings)
+        settings.backend.log(string: string, level: level, metadata: metadata, name: name, settings: settings)
     }
 }
