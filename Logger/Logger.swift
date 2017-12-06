@@ -35,19 +35,19 @@ public final class Logger {
     }
 
     public func debug(_ string: String, metadata: [String:Any] = [:]) {
-        log(string: string, level: .debug)
+        log(string: string, level: .debug, metadata: metadata)
     }
 
     public func info(_ string: String, metadata: [String:Any] = [:]) {
-        log(string: string, level: .info)
+        log(string: string, level: .info, metadata: metadata)
     }
 
     public func warn(_ string: String, metadata: [String:Any] = [:]) {
-        log(string: string, level: .warn)
+        log(string: string, level: .warn, metadata: metadata)
     }
 
     public func error(_ string: String, metadata: [String:Any] = [:]) {
-        log(string: string, level: .error)
+        log(string: string, level: .error, metadata: metadata)
     }
 
     public func log(string: String, level: LoggerLevel, metadata: [String:Any] = [:]) {
