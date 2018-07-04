@@ -30,6 +30,8 @@ public protocol LoggerBackend {
 
 public final class ConsoleBackend: LoggerBackend {
 
+    public init() {}
+
     public func log(string: String, level: LoggerLevel, metadata: [String:Any], name: String, settings: LoggerSettings) {
         let output = settings.formatter.format(string: string, level: level, metadata: metadata, name: name, settings: settings)
         NSLog(output)
