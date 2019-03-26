@@ -31,8 +31,8 @@ final class SpyBackend: LoggerBackend {
 
     init() {}
 
-    func log(string: String, level: LoggerLevel, name: String, settings: LoggerSettings) {
-        let output = settings.formatter.format(string: string, level: level, name: name, settings: settings)
+    func log(string: String, level: LoggerLevel, metadata: [String : Any], name: String, settings: LoggerSettings) {
+        let output = settings.formatter.format(string: string, level: level, metadata: metadata, name: name, settings: settings)
         logs.append(output)
     }
 }
